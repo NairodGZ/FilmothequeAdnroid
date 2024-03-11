@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="person"
+            type="com.example.demoeni.Personne">
+
+        </variable>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient_purple_blue"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ui_user_profile_avatar_person_icon_208734"
+                    android:tint="@color/white"
+                    ></ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inscription"
+                    android:textSize="40dp"
+                    android:textAlignment="center"
+                    style="@style/labelStyle"></TextView>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pseudo"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={person.pseudo}"
+                style="@style/inputStyle">
+
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.email}"
+                style="@style/inputStyle"
+                android:inputType="textWebEmailAddress">
+
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mot De Passe"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.motDePasse}"
+                style="@style/inputStyle"
+                android:inputType="textPassword">
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirmation Mot De Passe"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.motDePasse}"
+                style="@style/inputStyle"
+                android:inputType="textPassword">
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Code Postal"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.codePostal}"
+                style="@style/inputStyle"
+                android:inputType="number">
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ville"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.ville}"
+                style="@style/inputStyle">
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numero de telephone"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.numero}"
+                style="@style/inputStyle"
+                android:inputType="number">
+            </EditText>
+
+            <!--        Une div qui sert a occuper la place vide-->
+            <!--        Donc par définition le bouton va tout en bas-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="S\'inscrire"
+                android:onClick="goToActivityLogin"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Afficher Modal"
+                android:onClick="onClickModal"
+                />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

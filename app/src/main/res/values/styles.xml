@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="inputStyle">
+
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@drawable/edit_text_flat</item>
+
+    </style>
+
+    <style name="labelStyle">
+
+        <item name="android:textColor">#ede5dd</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:layout_margin">2dp</item>
+
+    </style>
+
+</resources>

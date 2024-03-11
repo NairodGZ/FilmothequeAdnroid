@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoEni</string>
+
+    <string name="forgottenPassword">
+       <u>Vous n\'avez pas de compte? Créez en un ici</u>
+    </string>
+</resources>
