@@ -6,6 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -26,19 +27,19 @@ interface FiImService {
     }
 
     @GET("/films")
-    suspend fun getFilms() : List<Film>
+    suspend fun getFilms() : ResponseMetier<List<Film>>
 
     @GET("/film/{id}")
-    suspend fun getFilmById(@Path("id") idFilm : Int) : Film
+    suspend fun getFilmById(@Path("id") idFilm : Int) : ResponseMetier<Film>
 
     @POST("/film/create")
-    suspend fun createFilm(@Body film : Film)
+    suspend fun createFilm(@Body film : Film, @Header("Authorization") token: String)
 
     @POST("/film/update/{id}")
-    suspend fun updateFilm(@Body film : Film)
+    suspend fun updateFilm(@Body film : Film, @Header("Authorization") token: String)
 
     @POST("film/delete/{id}")
-    suspend fun deleteFilm(@Path("id") idFilm : Int)
+    suspend fun deleteFilm(@Path("id") idFilm : Int, @Header("Authorization") token: String)
 
     object FilmApi
     {

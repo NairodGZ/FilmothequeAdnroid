@@ -1,10 +1,13 @@
 package com.example.demoeni
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface PersonneService {
 
@@ -24,6 +27,12 @@ interface PersonneService {
 
     @GET("/persons")
     suspend fun getPersonnes() : List<Personne>
+
+    @POST("/persons/create")
+    suspend fun createPersonne(@Body personne : Personne)
+
+    @POST("/login")
+    suspend fun login(@Body personne: Personne) : ResponseMetier<String>
 
     object PersonApi
     {

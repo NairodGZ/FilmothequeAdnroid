@@ -1,99 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_gradient_red_blue"
-    android:padding="20dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="personne"
+            type="com.example.demoeni.Personne">
+
+        </variable>
+    </data>
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Connexion"
-            style="@style/labelStyle"
-            android:textSize="40dp"
-            android:textAlignment="center"></TextView>
-
+        android:background="@drawable/background_gradient_red_blue"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connexion"
+                style="@style/labelStyle"
+                android:textSize="40dp"
+                android:textAlignment="center"></TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                ></TextView>
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textWebEmailAddress"
+                android:text="@={personne.email}"
+                style="@style/inputStyle">
+
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mot de Passe"
+                style="@style/labelStyle"
+                android:textAlignment="center"
+                android:inputType="textEmailAddress"
+                ></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/inputStyle"
+                android:inputType="textPassword"
+                android:text="@={personne.motDePasse}">
+
+
+            </EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/forgottenPassword"
+                android:layout_marginTop="7dp"
+                android:textAlignment="center"
+                android:onClick="goToActivityInscription"
+                android:textColor="#ede5dd"
+                android:fontFamily="serif"
+                ></TextView>
+
+
+            <!--        Une div qui sert a occuper la place vide-->
+            <!--        Donc par définition le bouton va tout en bas-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Se connecter"
+                android:onClick="connect"
+                />
+
 
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            style="@style/labelStyle"
-            android:textAlignment="center"
-            ></TextView>
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textWebEmailAddress"
-            style="@style/inputStyle">
-
-
-        </EditText>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mot de Passe"
-            style="@style/labelStyle"
-            android:textAlignment="center"
-            android:inputType="textEmailAddress"
-            ></TextView>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/inputStyle"
-            android:inputType="textPassword">
-
-
-        </EditText>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/forgottenPassword"
-            android:layout_marginTop="7dp"
-            android:textAlignment="center"
-            android:onClick="goToActivityForgottenPassword"
-            android:textColor="#ede5dd"
-            android:fontFamily="serif"
-        ></TextView>
-
-
-        <!--        Une div qui sert a occuper la place vide-->
-        <!--        Donc par définition le bouton va tout en bas-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-        </LinearLayout>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Se connecter"
-            android:onClick="connect"
-            />
-
-
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

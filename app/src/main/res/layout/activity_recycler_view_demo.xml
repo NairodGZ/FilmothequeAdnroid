@@ -3,12 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
    >
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="connexionToken"
+            type="String" />
+        <import type="com.example.demoeni.ConnextionActivity"
+            ></import>
+    </data>
+
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".RecyclerViewDemoActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Creer un Film"
+                android:layout_marginEnd="15dp"
+                android:textAlignment="textEnd"
+                android:onClick="goToActivityLogin"
+                android:visibility="@{connexionToken.isEmpty() ? View.GONE : View.VISIBLE}"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Se connecter"
+                android:textAlignment="textEnd"
+                android:onClick="goToActivityLogin"
+                android:visibility="@{connexionToken.isEmpty() ? View.VISIBLE : View.GONE}"
+                ></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Se deconnecter"
+                android:textAlignment="textEnd"
+                android:onClick="goToActivityLogin"
+                android:visibility="@{connexionToken.isEmpty() ? View.GONE : View.VISIBLE}"
+                ></TextView>
+
+        </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RV"

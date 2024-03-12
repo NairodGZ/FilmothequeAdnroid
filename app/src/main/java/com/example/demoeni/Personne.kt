@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-class Personne(var pseudo : String = "", var email  : String = "", var motDePasse : String = "" ,var codePostal : String = "", var ville : String = "", var numero : String = "") :
+class Personne( var pseudo : String = "", var email  : String = "", var motDePasse : String = "" ,var codePostal : String = "", var ville : String = "", var numero : String = "") :
     Parcelable {
 
 

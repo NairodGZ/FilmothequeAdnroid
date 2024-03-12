@@ -32,9 +32,9 @@ class FilmDetailActivity : ComponentActivity() {
         film = vm.film!!
 
         lifecycleScope.launch {
-            FiImService.FilmApi.retrofitService.updateFilm(film);
+            FiImService.FilmApi.retrofitService.updateFilm(film, ConnextionActivity.connexionToken);
 
-            var intent = Intent(vm.root.context, RecyclerViewFilms::class.java)
+            var intent = Intent(vm.root.context, MainActivity::class.java)
             startActivity(intent)
         }
     }
