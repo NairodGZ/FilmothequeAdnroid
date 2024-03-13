@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
     lateinit var vm: ActivityRecyclerViewDemoBinding;
     lateinit var adapter: FilmAdapter;
     lateinit var film: Film
-    lateinit var connexionToken : String
+    var connexionToken = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +44,14 @@ class MainActivity : ComponentActivity() {
     fun goToActivityLogin(view: View)
     {
         var intent = Intent(this, ConnextionActivity::class.java)
+
+        startActivity(intent)
+
+    }
+
+    fun goToActivityCreateFilm(view: View)
+    {
+        var intent = Intent(this, FilmCreationActivity::class.java)
 
         startActivity(intent)
 
@@ -92,6 +100,11 @@ class MainActivity : ComponentActivity() {
 
 
     }
+
+//    fun verifyToken(view : View)
+//    {
+//        var response = PersonneService.PersonApi.retrofitService.verifyToken();
+//    }
 
 
 }

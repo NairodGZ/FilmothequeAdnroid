@@ -7,6 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface PersonneService {
@@ -33,6 +34,9 @@ interface PersonneService {
 
     @POST("/login")
     suspend fun login(@Body personne: Personne) : ResponseMetier<String>
+
+    @POST("/verify-token")
+    suspend fun verifyToken(@Header("Authorization") token: String) : ResponseMetier<Any>
 
     object PersonApi
     {

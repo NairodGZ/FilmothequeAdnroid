@@ -33,7 +33,7 @@ interface FiImService {
     suspend fun getFilmById(@Path("id") idFilm : Int) : ResponseMetier<Film>
 
     @POST("/film/create")
-    suspend fun createFilm(@Body film : Film, @Header("Authorization") token: String)
+    suspend fun createFilm(@Body film : Film, @Header("Authorization") token: String) : ResponseMetier<Any>
 
     @POST("/film/update/{id}")
     suspend fun updateFilm(@Body film : Film, @Header("Authorization") token: String)

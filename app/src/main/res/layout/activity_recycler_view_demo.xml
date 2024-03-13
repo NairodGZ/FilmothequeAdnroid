@@ -32,7 +32,7 @@
                 android:text="Creer un Film"
                 android:layout_marginEnd="15dp"
                 android:textAlignment="textEnd"
-                android:onClick="goToActivityLogin"
+                android:onClick="goToActivityCreateFilm"
                 android:visibility="@{connexionToken.isEmpty() ? View.GONE : View.VISIBLE}"
                 ></TextView>
 

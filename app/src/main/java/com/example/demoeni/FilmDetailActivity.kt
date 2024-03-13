@@ -39,7 +39,12 @@ class FilmDetailActivity : ComponentActivity() {
         }
     }
 
+    fun goToMainActivity(view : View)
+    {
+        var intent = Intent(vm.root.context, MainActivity::class.java)
 
+        startActivity(intent)
+    }
 
 
 
