@@ -1,6 +1,7 @@
-package com.example.demoeni
+package com.example.demoeni.services
 
-import com.squareup.moshi.Json
+import com.example.demoeni.model.ResponseMetier
+import com.example.demoeni.model.Personne
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

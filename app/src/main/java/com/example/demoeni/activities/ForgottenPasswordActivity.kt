@@ -1,10 +1,11 @@
-package com.example.demoeni
+package com.example.demoeni.activities
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
+import com.example.demoeni.R
 import com.example.demoeni.databinding.ActivityForgottenPasswordBinding
 import com.example.demoeni.viewmodel.ForgettenPasswordViewModel
 

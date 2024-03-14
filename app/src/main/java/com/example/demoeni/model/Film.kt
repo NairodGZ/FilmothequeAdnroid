@@ -1,4 +1,4 @@
-package com.example.demoeni
+package com.example.demoeni.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,13 +1,16 @@
-package com.example.demoeni
+package com.example.demoeni.activities
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.example.demoeni.services.FiImService
+import com.example.demoeni.R
 import com.example.demoeni.databinding.ActivityFilmDetailBinding
+import com.example.demoeni.model.Film
+import com.tp.tpmovie.utils.AuthRegistry
 import kotlinx.coroutines.launch
 
 class FilmDetailActivity : ComponentActivity() {
@@ -18,7 +21,9 @@ class FilmDetailActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        vm = DataBindingUtil.setContentView<ActivityFilmDetailBinding>(this, R.layout.activity_film_detail)
+        vm = DataBindingUtil.setContentView<ActivityFilmDetailBinding>(this,
+            R.layout.activity_film_detail
+        )
 
         val film = intent.getParcelableExtra<Film>("film") as Film
 
@@ -32,7 +37,7 @@ class FilmDetailActivity : ComponentActivity() {
         film = vm.film!!
 
         lifecycleScope.launch {
-            FiImService.FilmApi.retrofitService.updateFilm(film, ConnextionActivity.connexionToken);
+            FiImService.FilmApi.retrofitService.updateFilm(film, AuthRegistry.connexionToken);
 
             var intent = Intent(vm.root.context, MainActivity::class.java)
             startActivity(intent)

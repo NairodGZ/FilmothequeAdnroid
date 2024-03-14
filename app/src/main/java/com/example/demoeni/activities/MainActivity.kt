@@ -1,4 +1,4 @@
-package com.example.demoeni
+package com.example.demoeni.activities
 
 import android.app.AlertDialog
 import android.content.Intent
@@ -7,8 +7,13 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.example.demoeni.services.FiImService
+import com.example.demoeni.adapters.FilmAdapter
+import com.example.demoeni.R
 import com.example.demoeni.databinding.ActivityRecyclerViewDemoBinding
-import com.example.demoeni.databinding.ActivitySignUpBinding
+import com.example.demoeni.model.Film
+import com.tp.tpmovie.utils.AuthRegistry
+import com.tp.tpmovie.utils.Helpers
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -16,14 +21,16 @@ class MainActivity : ComponentActivity() {
     lateinit var vm: ActivityRecyclerViewDemoBinding;
     lateinit var adapter: FilmAdapter;
     lateinit var film: Film
-    var connexionToken = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        Helpers.showProgressDialog(this, "Chargement des films")
+
         vm = DataBindingUtil.setContentView(this, R.layout.activity_recycler_view_demo)
 
-        vm.connexionToken = ConnextionActivity.connexionToken
+        vm.connexionToken = AuthRegistry.connexionToken
 
         // Connecter notre adapter custom (cellule personne etc) au recyclerview
         adapter = FilmAdapter();
@@ -38,6 +45,8 @@ class MainActivity : ComponentActivity() {
             adapter.submitList(response.data);
 
         }
+
+        Helpers.closeProgressDialog()
     }
 
 
@@ -83,7 +92,7 @@ class MainActivity : ComponentActivity() {
         builder.setPositiveButton("Oui"){
                 dialog, wich ->
             lifecycleScope.launch {
-                FiImService.FilmApi.retrofitService.deleteFilm(view.tag as Int, ConnextionActivity.connexionToken);
+                FiImService.FilmApi.retrofitService.deleteFilm(view.tag as Int, AuthRegistry.connexionToken);
 
                 var intent = Intent(vm.root.context, MainActivity::class.java)
 

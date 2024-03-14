@@ -3,10 +3,12 @@
 
     <data>
         <variable
-            name="personne"
-            type="com.example.demoeni.Personne">
+            name="viewModel"
+            type="com.example.demoeni.viewmodel.ConnexionViewModel">
 
         </variable>
+
+
     </data>
 
     <LinearLayout
@@ -51,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textWebEmailAddress"
-                android:text="@={personne.email}"
+                android:text="@={viewModel.personne.email}"
                 style="@style/inputStyle">
 
 
@@ -71,18 +73,18 @@
                 android:layout_height="wrap_content"
                 style="@style/inputStyle"
                 android:inputType="textPassword"
-                android:text="@={personne.motDePasse}">
+                android:text="@={viewModel.personne.motDePasse}">
 
 
             </EditText>
 
             <TextView
+                android:id="@+id/tvForgottenPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/forgottenPassword"
                 android:layout_marginTop="7dp"
                 android:textAlignment="center"
-                android:onClick="goToActivityInscription"
                 android:textColor="#ede5dd"
                 android:fontFamily="serif"
                 ></TextView>
@@ -98,6 +100,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Se connecter"

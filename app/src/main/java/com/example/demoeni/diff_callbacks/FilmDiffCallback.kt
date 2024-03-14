@@ -1,6 +1,7 @@
-package com.example.demoeni
+package com.example.demoeni.diff_callbacks
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.demoeni.model.Film
 
 class FilmDiffCallback : DiffUtil.ItemCallback<Film>() {
 

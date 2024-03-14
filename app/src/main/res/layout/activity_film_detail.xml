@@ -4,7 +4,7 @@
     <data>
         <variable
             name="film"
-            type="com.example.demoeni.Film">
+            type="com.example.demoeni.model.Film">
 
         </variable>
     </data>

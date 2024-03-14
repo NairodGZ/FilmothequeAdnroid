@@ -1,5 +1,7 @@
-package com.example.demoeni
+package com.example.demoeni.services
 
+import com.example.demoeni.model.ResponseMetier
+import com.example.demoeni.model.Film
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
