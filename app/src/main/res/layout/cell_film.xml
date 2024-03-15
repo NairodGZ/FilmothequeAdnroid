@@ -3,11 +3,8 @@
 
     <data>
         <variable
-            name="film"
-            type="com.example.demoeni.model.Film"
-            >
-
-        </variable>
+            name="viewModel"
+            type="com.example.demoeni.viewmodel.MainActivityViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,54 +18,52 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@{film.title}"
+            android:text="@{viewModel.film.title}"
             ></TextView>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@{film.synopsis}"
+            android:text="@{viewModel.film.synopsis}"
             ></TextView>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@{film.duration}"
+            android:text="@{viewModel.film.duration}"
             ></TextView>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@{film.year}"
+            android:text="@{viewModel.film.year}"
             ></TextView>
 
         <ImageView
-            android:id="@+id/detail"
+            android:id="@+id/btnDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/eye_icon"
-            android:tag="@{film.id}"
-            android:onClick="filmDetail"
+            android:tag="@{viewModel.film.id}"
             ></ImageView>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/pencil_icon"
-            android:tag="@{film.id}"
-            android:onClick="filmDetail"
+            android:tag="@{viewModel.film.id}"
             ></ImageView>
 
 
         <ImageView
+            android:id="@+id/btnDelete"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:src="@drawable/bin_icon"
-            android:tag="@{film.id}"
-            android:onClick="filmDelete"
+            android:tag="@{viewModel.film.id}"
             ></ImageView>
 
 

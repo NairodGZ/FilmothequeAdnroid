@@ -5,30 +5,17 @@
       <entry key="FilmCreationActivity">
         <State />
       </entry>
-      <entry key="InscriptionActivity">
+      <entry key="FilmCreationActivity (1)">
         <State />
       </entry>
-      <entry key="MainActivity">
+      <entry key="InscriptionActivity">
         <State />
       </entry>
       <entry key="MainActivity (1)">
         <State />
       </entry>
       <entry key="app">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="FY23241100F7" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-05T08:23:27.339737900Z" />
-        </State>
+        <State />
       </entry>
     </value>
   </component>

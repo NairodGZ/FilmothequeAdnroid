@@ -11,6 +11,10 @@
             type="String" />
         <import type="com.example.demoeni.activities.ConnextionActivity"
             ></import>
+
+        <variable
+            name="viewModel"
+            type="com.example.demoeni.viewmodel.MainActivityViewModel" />
     </data>
 
     <LinearLayout
@@ -27,12 +31,12 @@
             >
 
             <TextView
+                android:id="@+id/btnFilmCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Creer un Film"
                 android:layout_marginEnd="15dp"
                 android:textAlignment="textEnd"
-                android:onClick="goToActivityCreateFilm"
                 android:visibility="@{connexionToken.isEmpty() ? View.GONE : View.VISIBLE}"
                 ></TextView>
 

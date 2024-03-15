@@ -7,13 +7,16 @@ import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import com.example.demoeni.R
 import com.example.demoeni.services.FiImService
 import com.example.demoeni.adapters.FilmAdapter
-import com.example.demoeni.R
 import com.example.demoeni.databinding.ActivityRecyclerViewDemoBinding
 import com.example.demoeni.model.Film
+import com.example.demoeni.viewmodel.MainActivityViewModel
 import com.tp.tpmovie.utils.AuthRegistry
 import com.tp.tpmovie.utils.Helpers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -29,6 +32,9 @@ class MainActivity : ComponentActivity() {
         Helpers.showProgressDialog(this, "Chargement des films")
 
         vm = DataBindingUtil.setContentView(this, R.layout.activity_recycler_view_demo)
+
+        vm.viewModel = MainActivityViewModel(this, film)
+        vm.viewModelCell = MainActivityViewModel(this, film)
 
         vm.connexionToken = AuthRegistry.connexionToken
 
@@ -47,73 +53,15 @@ class MainActivity : ComponentActivity() {
         }
 
         Helpers.closeProgressDialog()
-    }
 
-
-    fun goToActivityLogin(view: View)
-    {
-        var intent = Intent(this, ConnextionActivity::class.java)
-
-        startActivity(intent)
+        vm
 
     }
 
-    fun goToActivityCreateFilm(view: View)
-    {
-        var intent = Intent(this, FilmCreationActivity::class.java)
-
-        startActivity(intent)
-
-    }
-
-    fun filmDetail(view: View) {
-
-        lifecycleScope.launch {
-            val response = FiImService.FilmApi.retrofitService.getFilmById(view.tag as Int);
-
-            if(response.code == "200")
-            {
-                var intent = Intent(vm.root.context, FilmDetailActivity::class.java)
-                intent.putExtra("film", response.data)
-                startActivity(intent)
-            }
-
-
-        }
-
-
-    }
-
-    fun filmDelete(view: View) {
-
-        var builder = AlertDialog.Builder(this);
-        builder.setTitle("Confirmation")
-        builder.setMessage("Etes vous sur de vouloir supprimer ce film")
-        builder.setPositiveButton("Oui"){
-                dialog, wich ->
-            lifecycleScope.launch {
-                FiImService.FilmApi.retrofitService.deleteFilm(view.tag as Int, AuthRegistry.connexionToken);
-
-                var intent = Intent(vm.root.context, MainActivity::class.java)
-
-                startActivity(intent)
-            }
-        }
-        builder.setNegativeButton("Non"){
-                dialog, wich -> dialog.dismiss()
-        }
-        //Afficher le dialogue
-        builder.show();
 
 
 
 
-    }
-
-//    fun verifyToken(view : View)
-//    {
-//        var response = PersonneService.PersonApi.retrofitService.verifyToken();
-//    }
 
 
 }

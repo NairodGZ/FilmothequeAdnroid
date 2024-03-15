@@ -17,26 +17,17 @@ class ForgottenPasswordActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         vm = DataBindingUtil.setContentView(this, R.layout._activity_forgotten_password)
-        vm.forgottenPasswordModel = ForgettenPasswordViewModel()
+        val forgottenPasswordViewModel = ForgettenPasswordViewModel(this, "")
+        vm.viewModel = forgottenPasswordViewModel
 
-
-    }
-
-    fun forgottenPasswordSend(view : View)
-    {
-
-        val emailSaisi = vm.forgottenPasswordModel?.email;
-
-        var builder = AlertDialog.Builder(this);
-        builder.setTitle("Mot de passe oublié")
-        builder.setMessage("Le lien de récupération de mot de passe vous a été envoyé a : $emailSaisi")
-        builder.setPositiveButton("OK"){
-                dialog, wich -> dialog.dismiss();
+        vm.btnSubmit.setOnClickListener()
+        {
+            forgottenPasswordViewModel.forgottenPasswordSend()
         }
 
-        //Afficher le dialogue
-        builder.show();
 
     }
+
+
 }
 
